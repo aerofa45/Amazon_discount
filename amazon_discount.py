@@ -4,9 +4,6 @@ Original file is located at
     https://colab.research.google.com/drive/1fPm9hQ9-0-VrBTZKmArtbIwf1rAD2wjR
 """
 
-!pip install streamlit
-
-!pip install apscheduler
 
 
 import streamlit as st
