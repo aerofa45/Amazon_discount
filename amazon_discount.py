@@ -99,13 +99,19 @@ def notify_user(email, message):
         print(f"Error sending email: {e}")
 
 # Load environment variables from .env
-load_dotenv()
+#load_dotenv()
 
 # Access the variables
-sender_email = os.getenv("SENDER_EMAIL")
-sender_password = os.getenv("SENDER_PASSWORD")
-smtp_server = os.getenv("SMTP_SERVER", "smtp.example.com")
-smtp_port = int(os.getenv("SMTP_PORT", "587"))
+#sender_email = os.getenv("SENDER_EMAIL")
+#sender_password = os.getenv("SENDER_PASSWORD")
+#smtp_server = os.getenv("SMTP_SERVER", "smtp.example.com")
+#smtp_port = int(os.getenv("SMTP_PORT", "587"))
+
+
+sender_email = st.secrets["SENDER_EMAIL"]
+sender_password = st.secrets["SENDER_PASSWORD"]
+smtp_server = st.secrets["SMTP_SERVER"]
+smtp_port = int(st.secrets["SMTP_PORT"])
 
 
 # Advanced query to find significant discounts
