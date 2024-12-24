@@ -5,7 +5,7 @@ Original file is located at
 """
 
 
-from dotenv import load_dotenv
+
 import os
 import streamlit as st
 import pandas as pd
@@ -19,6 +19,7 @@ import sqlite3
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from dotenv import load_dotenv
 
 
 
