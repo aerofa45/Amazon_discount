@@ -5,7 +5,8 @@ Original file is located at
 """
 
 
-
+from dotenv import load_dotenv
+import os
 import streamlit as st
 import pandas as pd
 import requests
@@ -18,6 +19,8 @@ import sqlite3
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+
 
 # Initialize database connection
 def init_db():
@@ -93,6 +96,16 @@ def notify_user(email, message):
             server.sendmail(sender_email, email, msg.as_string())
     except Exception as e:
         print(f"Error sending email: {e}")
+
+# Load environment variables from .env
+load_dotenv()
+
+# Access the variables
+sender_email = os.getenv("SENDER_EMAIL")
+sender_password = os.getenv("SENDER_PASSWORD")
+smtp_server = os.getenv("SMTP_SERVER", "smtp.example.com")
+smtp_port = int(os.getenv("SMTP_PORT", "587"))
+
 
 # Advanced query to find significant discounts
 def find_significant_discounts(conn, threshold):
