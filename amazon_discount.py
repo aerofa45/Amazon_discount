@@ -176,15 +176,16 @@ if product_ids_input:
 st.subheader("Fetched Discounts")
 # Instead of loading the whole jsonl_data string
 # Iterate and load each line as a separate JSON object
-for line in jsonl_data.splitlines():
+for i, line in enumerate(jsonl_data.splitlines()):
     st.json(json.loads(line))
 
-    # Allow download of JSONL data
+    # Allow download of JSONL data with a unique key for each button
     st.download_button(
-        label="Download JSONL",
+        label=f"Download JSONL {i}",
         data=jsonl_data,
-        file_name="amazon_discounts.jsonl",
+        file_name=f"amazon_discounts_{i}.jsonl",  # Unique file name for each download
         mime="application/jsonl",
+        key=f"download_button_{i}"  # Unique key for each download button
     )
 
     # Schedule periodic updates
